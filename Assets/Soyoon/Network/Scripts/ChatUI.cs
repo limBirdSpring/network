@@ -10,6 +10,9 @@ namespace SoYoon
     public class ChatUI : MonoBehaviour
     {
         [SerializeField]
+        private Client client;
+
+        [SerializeField]
         private TMP_InputField inputField;
         [SerializeField]
         private RectTransform chatContent;
@@ -24,7 +27,7 @@ namespace SoYoon
             if (Input.GetButtonDown("Submit"))
             {
                 if (inputField.IsActive() && inputField.text != "")
-                    AddChat(inputField.text);
+                    client.SendChat(inputField.text);
                 else
                     inputField.ActivateInputField();
             }
