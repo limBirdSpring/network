@@ -1,6 +1,4 @@
-using Newtonsoft.Json.Schema;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Net.Sockets;
 using TMPro;
@@ -37,6 +35,11 @@ namespace SoYoon
                 string chat = reader.ReadLine();
                 if (chat != null) ReceiveChat(chat);
             }
+        }
+
+        private void OnDisable()
+        {
+            Disconnect();
         }
 
         public void Connect()
