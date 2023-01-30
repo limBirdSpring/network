@@ -5,49 +5,52 @@ using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChatUI : MonoBehaviour
+namespace SoYoon
 {
-    [SerializeField]
-    private TMP_InputField inputField;
-    [SerializeField]
-    private RectTransform chatContent;
-    [SerializeField]
-    private ScrollRect chatScrollView;
-    [SerializeField]
-    private TMP_Text chatText;
-
-
-    private void Update()
+    public class ChatUI : MonoBehaviour
     {
-        if(Input.GetButtonDown("Submit"))
+        [SerializeField]
+        private TMP_InputField inputField;
+        [SerializeField]
+        private RectTransform chatContent;
+        [SerializeField]
+        private ScrollRect chatScrollView;
+        [SerializeField]
+        private TMP_Text chatText;
+
+
+        private void Update()
         {
-            if (inputField.IsActive() && inputField.text != "")
-                AddChat(inputField.text);
-            else
-                inputField.ActivateInputField();
+            if (Input.GetButtonDown("Submit"))
+            {
+                if (inputField.IsActive() && inputField.text != "")
+                    AddChat(inputField.text);
+                else
+                    inputField.ActivateInputField();
+            }
         }
-    }
 
-    public void AddMessage(string chat) // 정보 표시용
-    {
-        TMP_Text newMessage = Instantiate(chatText, chatContent);
-        newMessage.text = chat;
-        newMessage.fontSize = 32;
-        newMessage.color = Color.red;
-        chatScrollView.verticalScrollbar.value = 0;
+        public void AddMessage(string chat) // 정보 표시용
+        {
+            TMP_Text newMessage = Instantiate(chatText, chatContent);
+            newMessage.text = chat;
+            newMessage.fontSize = 32;
+            newMessage.color = Color.red;
+            chatScrollView.verticalScrollbar.value = 0;
 
-        inputField.text = "";
-        inputField.ActivateInputField();
-    }
+            inputField.text = "";
+            inputField.ActivateInputField();
+        }
 
-    public void AddChat(string chat)
-    {
-        TMP_Text newMessage = Instantiate(chatText, chatContent);
-        newMessage.text = chat;
-        newMessage.fontSize = 32;
-        chatScrollView.verticalScrollbar.value = 0; // 채팅을 치면 가장 아래로
+        public void AddChat(string chat)
+        {
+            TMP_Text newMessage = Instantiate(chatText, chatContent);
+            newMessage.text = chat;
+            newMessage.fontSize = 32;
+            chatScrollView.verticalScrollbar.value = 0; // 채팅을 치면 가장 아래로
 
-        inputField.text = "";
-        inputField.ActivateInputField();
+            inputField.text = "";
+            inputField.ActivateInputField();
+        }
     }
 }
