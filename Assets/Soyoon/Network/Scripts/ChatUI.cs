@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +6,9 @@ namespace SoYoon
 {
     public class ChatUI : MonoBehaviour
     {
+        [SerializeField]
+        private Client client;
+
         [SerializeField]
         private TMP_InputField inputField;
         [SerializeField]
@@ -24,7 +24,7 @@ namespace SoYoon
             if (Input.GetButtonDown("Submit"))
             {
                 if (inputField.IsActive() && inputField.text != "")
-                    AddChat(inputField.text);
+                    client.SendChat(inputField.text);
                 else
                     inputField.ActivateInputField();
             }
