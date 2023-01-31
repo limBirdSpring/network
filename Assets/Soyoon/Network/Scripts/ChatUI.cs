@@ -49,7 +49,7 @@ namespace SoYoon
             newMessage.fontSize = 32;
             chatScrollView.verticalScrollbar.value = 0; // 채팅을 치면 가장 아래로
 
-            inputField.text = "";
+            //inputField.text = "";
             inputField.ActivateInputField();
         }
     }
