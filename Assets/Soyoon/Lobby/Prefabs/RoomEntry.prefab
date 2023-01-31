@@ -257,7 +257,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5807155018050148654}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RoomEntry, Assembly-CSharp
         m_MethodName: OnJoinRoomClicked
         m_Mode: 1
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 6068696688431543252}
   - component: {fileID: 3724621215688467423}
   - component: {fileID: 1579522584025367953}
-  - component: {fileID: 5807155018050148654}
+  - component: {fileID: 2907050007893345036}
   m_Layer: 5
   m_Name: RoomEntry
   m_TagString: Untagged
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5807155018050148654
+--- !u!114 &2907050007893345036
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -358,7 +358,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1524369796693215410}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba29f9902b2d93043b674dc214dc1ab7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a1531049bd87a14f8010d8b084cea95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   roomName: {fileID: 357019294366316985}
