@@ -6,25 +6,28 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RoomEntry : MonoBehaviour
+namespace SoYoon
 {
-    [SerializeField]
-    private TMP_Text roomName;
-    [SerializeField]
-    private TMP_Text currentPlayer;
-    [SerializeField]
-    private Button joinRoomButton;
-
-    public void Initialized(string name, int currentPlayers, byte maxPlayers)
+    public class RoomEntry : MonoBehaviour
     {
-        roomName.text = name;
-        currentPlayer.text = string.Format("{0} / {1}", currentPlayers, maxPlayers);
-        joinRoomButton.interactable = currentPlayers < maxPlayers;
-    }
+        [SerializeField]
+        private TMP_Text roomName;
+        [SerializeField]
+        private TMP_Text currentPlayer;
+        [SerializeField]
+        private Button joinRoomButton;
 
-    public void OnJoinButtonClicked()
-    {
-        PhotonNetwork.LeaveLobby();
-        PhotonNetwork.JoinRoom(roomName.text);
+        public void Initialized(string name, int currentPlayers, byte maxPlayers)
+        {
+            roomName.text = name;
+            currentPlayer.text = string.Format("{0} / {1}", currentPlayers, maxPlayers);
+            joinRoomButton.interactable = currentPlayers < maxPlayers;
+        }
+
+        public void OnJoinButtonClicked()
+        {
+            PhotonNetwork.LeaveLobby();
+            PhotonNetwork.JoinRoom(roomName.text);
+        }
     }
 }

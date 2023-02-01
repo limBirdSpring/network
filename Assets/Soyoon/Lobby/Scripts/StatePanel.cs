@@ -4,38 +4,41 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class StatePanel : MonoBehaviour
+namespace SoYoon
 {
-    [SerializeField]
-    private RectTransform content;
-    [SerializeField]
-    private TMP_Text textPrefab;
-
-    public static StatePanel Instance { get; private set; }
-
-    private Photon.Realtime.ClientState state;
-
-    private void Awake()
+    public class StatePanel : MonoBehaviour
     {
-        Instance = this;
-    }
+        [SerializeField]
+        private RectTransform content;
+        [SerializeField]
+        private TMP_Text textPrefab;
 
-    private void Update()
-    {
-        if (state == PhotonNetwork.NetworkClientState)
-            return;
+        public static StatePanel Instance { get; private set; }
 
-        state = PhotonNetwork.NetworkClientState;
+        private Photon.Realtime.ClientState state;
 
-        TMP_Text text = Instantiate(textPrefab, content);
-        text.text = string.Format("[Photon NetworkState] {0}", state.ToString());
-        Debug.Log(string.Format("[Photon NetworkState] {0}", state.ToString()));
-    }
+        private void Awake()
+        {
+            Instance = this;
+        }
 
-    public void AddMessage(string message)
-    {
-        TMP_Text text = Instantiate(textPrefab, content);
-        text.text = string.Format("[Photon] {0}", message);
-        Debug.Log(string.Format("[Photon] {0}", message));
+        private void Update()
+        {
+            if (state == PhotonNetwork.NetworkClientState)
+                return;
+
+            state = PhotonNetwork.NetworkClientState;
+
+            TMP_Text text = Instantiate(textPrefab, content);
+            text.text = string.Format("[Photon NetworkState] {0}", state.ToString());
+            Debug.Log(string.Format("[Photon NetworkState] {0}", state.ToString()));
+        }
+
+        public void AddMessage(string message)
+        {
+            TMP_Text text = Instantiate(textPrefab, content);
+            text.text = string.Format("[Photon] {0}", message);
+            Debug.Log(string.Format("[Photon] {0}", message));
+        }
     }
 }

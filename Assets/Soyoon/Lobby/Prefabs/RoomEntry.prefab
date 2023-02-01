@@ -257,9 +257,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2907050007893345036}
         m_TargetAssemblyTypeName: RoomEntry, Assembly-CSharp
-        m_MethodName: OnJoinRoomClicked
+        m_MethodName: OnJoinButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

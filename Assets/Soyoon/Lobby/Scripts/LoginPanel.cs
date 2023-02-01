@@ -5,23 +5,26 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoginPanel : MonoBehaviour
+namespace SoYoon
 {
-    [SerializeField]
-    private TMP_InputField idInputField;
-
-    private void Start()
+    public class LoginPanel : MonoBehaviour
     {
-        idInputField.text = "Player " + Random.Range(1000, 10000);
-    }
+        [SerializeField]
+        private TMP_InputField idInputField;
 
-    public void OnLoginButtonClicked()
-    {
-        if(idInputField.text == "")
+        private void Start()
         {
-            StatePanel.Instance.AddMessage("Invalid Player Name");
+            idInputField.text = "Player " + Random.Range(1000, 10000);
         }
-        PhotonNetwork.LocalPlayer.NickName = idInputField.text;
-        PhotonNetwork.ConnectUsingSettings();
+
+        public void OnLoginButtonClicked()
+        {
+            if (idInputField.text == "")
+            {
+                StatePanel.Instance.AddMessage("Invalid Player Name");
+            }
+            PhotonNetwork.LocalPlayer.NickName = idInputField.text;
+            PhotonNetwork.ConnectUsingSettings();
+        }
     }
 }
